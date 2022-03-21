@@ -26,8 +26,12 @@ for i in original_list:
 
 #There are 3 parts to list comprehension:
 
-#*result*  = [*transform/expression*    *iteration*         *filter*     ]
+#*result*  = [*transform/expression*    *iteration*         *filter/condition*     ]
 
+#example
+#list2=[x   for x in list1  if x>=10    ]
+
+#Condition is optional
 #The filter part answers the question if the item should be transformed.
 
 
@@ -38,7 +42,8 @@ for i in original_list:
 # which contains only the positive numbers from the list, as integers.
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
-
+newlist = [x for x in numbers if x >= 0]
+print(newlist)
 
 
 
@@ -47,8 +52,8 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
-
-
+lengths = [len(word) for word in words]
+print(lengths)
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
 ## Contruct a list of the names of vehicles with weight below 5000 kilograms. 
@@ -57,24 +62,23 @@ words = sentence.split()
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
 
-
-
+lightweight = [x.upper() for x in dict if dict[x] <= 5000]
+print(lightweight)
 
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 
-
+fours = [x for x in range(1001) if "4" in str(x)]
+print(fours)
 
 ## count how many times the word 'the' appears in the text file - 'sometext.txt'
 
+myfile = open("sometext.txt","r").read().split()
+result = [i.lower() for i in myfile if "the" == i.lower()]
+print(len(result))
 
 
 ## Extract the numbers from the following phrase ##
-
-phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
-"event, with about 3 or 4 that were classifled as serious per event.'
-
-
-
-
-
-
+phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each event, with about 3 or 4 that were classifled as serious per event.'
+phrase_list = phrase.split()
+numbersinphrase = [x for x in phrase_list if x.isdigit()]
+print(numbersinphrase)

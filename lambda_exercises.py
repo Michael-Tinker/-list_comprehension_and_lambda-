@@ -89,7 +89,7 @@ chars = list(give_string)
 #Check if upper
 #Check if number
 #Combine with and?
-
+#use lambda to check if upper or lower or digit
 print(check)
 
 
